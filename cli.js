@@ -33,9 +33,9 @@ if (args.h){
 var tz = args.z ||  moment.tz.guess();
 const lati = args.n || args.s * -1;;
 const longti = args.e || args.w * -1;
-var days =  args.d ? args.d : 1;
+var days = args.d || 1;
 
-var url_w = "https://api.open-meteo.com/v1/forecast?latitude=" + lati + "&longitude=" + longti + "&timezone=" + tz + "&day="+days;
+var url_w = "https://api.open-meteo.com/v1/forecast?latitude=" + lati + "&longitude=" + longti + '&daily=precipitation_hours&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timezone=' + tz;
 // console.log(url_w);
 const response = await fetch(url_w);
 const data = await response.json();
