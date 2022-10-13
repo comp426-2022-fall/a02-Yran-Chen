@@ -41,7 +41,7 @@ if (args.h){
 var tz = args.z ||  moment.tz.guess();
 var lati = args.n || ( "-"+args.s) ;
 var longti = args.e || ( "-"+args.w) ;
-var days = args.d || 0;
+var days = args.d || 1;
 
 var url_w = "https://api.open-meteo.com/v1/forecast?latitude=" + lati + "&longitude=" + longti + "&hourly=temperature_2m&timezone=" + tz;
 // console.log(url_w);
