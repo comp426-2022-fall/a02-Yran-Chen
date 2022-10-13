@@ -29,8 +29,20 @@ if (args.h){
 };
 // console.log(moment.tz.guess());
 var tz = args.z ||  moment.tz.guess();
-var lati = args.n || ( "-"+args.s) ;
-var longti = args.e || ( "-"+args.w) ;
+if (args.n | args.s){
+    var lati = args.n || ( "-"+args.s) ;
+}
+else{
+    var lati = 35;
+}
+
+if (args.e | args.w){
+    var longti = args.e || ( "-"+args.w) ;
+}
+else{
+    var longti = 79;
+}
+
 var days = args.d || 1;
 
 var url_w = "https://api.open-meteo.com/v1/forecast?latitude=" + lati + "&longitude=" + longti + "&hourly=temperature_2m&timezone=" + tz;
