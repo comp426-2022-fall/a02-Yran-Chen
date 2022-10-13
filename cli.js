@@ -3,7 +3,6 @@
 import moment from 'moment-timezone';
 import fetch from 'node-fetch';
 import minimist from 'minimist';
-// const fs = require('fs');
 
 
 var args = minimist(process.argv.slice(2),
@@ -13,15 +12,6 @@ var args = minimist(process.argv.slice(2),
     
 }
 );
-
-if (args.j){
-    const response = await fetch("https://api.open-meteo.com/v1/forecast?latitude=41.8955&longitude=12.4823&hourly=temperature_2m&past_days=2");
-    const data = await response.json();
-    console.log(
-        data
-    );
-    process.exit(0);
-}
 
 if (args.h){
     console.log(
@@ -47,8 +37,17 @@ var url_w = "https://api.open-meteo.com/v1/forecast?latitude=" + lati + "&longit
 // console.log(url_w);
 const response = await fetch(url_w);
 const data = await response.json();
-console.log(data);
 
+
+if (args.j){
+    console.log(
+        data
+    );
+    process.exit(0);
+}
+
+
+console.log(data);
 
 if (days == 0) {
   console.log("today.")
