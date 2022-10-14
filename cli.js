@@ -51,17 +51,17 @@ if (args.j){
 // console.log(data);
 
 if (data.daily.precipitation_hours[days] != 0) {
-    console.log("You might need your galoshes ");
+    var rain = "You might need your galoshes ";
   } else {
-    console.log("You will not need your galoshes ");
+    var rain = "You will not need your galoshes ";
 }
 
 if (days == 0) {
-  console.log("today.")
+  var nowtime = "today.";
 } else if (days > 1) {
-  console.log("in " + days + " days.")
+  var nowtime = "in " + days + " days.";
 } else {
-  console.log("tomorrow.")
+  var nowtime = "tomorrow.";
 }
 
-// console.log(data);
+console.log(rain+nowtime);
